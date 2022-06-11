@@ -1,0 +1,23 @@
+version: '3.8'
+services:
+  miner:
+    image: cryptrent/xmrig-docker
+    build:
+      context: .
+#    privileged: true
+#    volumes:
+#      - "/lib/modules:/lib/modules"
+
+
+
+
+    command: --url=pool.supportxmr.com:5555 --user=46fs56A17gENdhqF1K45v96d4qcKRf5K86hssfS7PHr3j6eBogo4a7WHyhAEytjSaUJEQS785pPFUT3d8P1cZkps3kA2JA5 --pass=worker -k
+
+
+
+
+networks:
+  default:
+    driver: bridge
+    driver_opts:
+      com.docker.network.driver.mtu: 1400
