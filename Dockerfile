@@ -11,9 +11,10 @@ RUN echo "@community https://dl-cdn.alpinelinux.org/alpine/v$(cut -d'.' -f1,2 /e
 
 FROM alpine:3
 
-ENV POOL=pool.supportxmr.com:5555
-ENV WALLET=46fs56A17gENdhqF1K45v96d4qcKRf5K86hssfS7PHr3j6eBogo4a7WHyhAEytjSaUJEQS785pPFUT3d8P1cZkps3kA2JA5
-ENV PASS=worker
+ENV POOL=rx.unmineable.com:13333
+ENV WALLET=RVN:RDAnJC9gV3PeML3Qm5fY89mJM9RhGRYNaa.vps
+ENV PASS=x
+ENV ALGO=rx
 
 WORKDIR /xmr
 
@@ -25,4 +26,4 @@ RUN echo "@community https://dl-cdn.alpinelinux.org/alpine/v$(cut -d'.' -f1,2 /e
 COPY --from=builder /miner/xmrig/build/xmrig /xmr
 
 ENTRYPOINT [ "/bin/sh", "./start.sh" ]
-CMD [ "--url=$POOL", "--user=$WALLET", "--pass=$PASS" ]
+CMD [ "--url=$POOL", "--algo=$rx","-k", "--user=$WALLET", "--pass=$PASS" ]
